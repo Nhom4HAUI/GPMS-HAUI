@@ -3,18 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <title>Login Page</title>
-<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<link href="../static/css/back-end-login.css"
+	th:href="@{/css/back-end-login.css}" rel="stylesheet" />
 </head>
 <body>
-	<div class="main-content">
-		<p th:if="${param.error}" class="error">Invalid email or password</p>
-		<p th:if="${param.logout}" class="success">You have been logged out</p>
-		<h3>Login to continue</h3>
-		<form th:action="@{/login}" method="POST">
-			<input type="text" name="email" placeholder="Your email" /><br />
-			<input type="password" name="password" placeholder="Your password" /><br />
-			<button type="submit">Login</button> <br />
-		</form>
-	</div>
+  <div class="container">
+    <div class="info">
+      <h1>ĐỒ ÁN TỐT NGHIỆP HAUI</h1><span>Made with <i class="fa fa-heart"></i> by <a href="https://www.facebook.com/opizq">Team 4 - KTPM CLC K9</a></span>
+    </div>
+  </div>
+  <div class="form">
+    <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" /></div>
+    
+    <form class="login-form" th:action="@{/login}" method="post">
+      <input type="text" placeholder="username" name="email"/>
+      <input type="password" placeholder="password" name="password" />
+      <p th:if="${param.error}" class="error">Invalid username or password!</p>
+      <button type="submit">login</button>
+      <p class="message">Forgot password? <a href="#">Reset Password</a></p>
+      
+    </form>
+  </div>
+    <script type="text/javascript" src="js/custom.js">
+  </script>
 </body>
 </html>

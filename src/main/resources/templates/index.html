@@ -1,16 +1,84 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8" />
-<title>Index Page</title>
-<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà
+	Nội</title>
+<link href="../static/bootstrap/css/bootstrap.min.css"
+	th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<link href="../static/css/custom.css" th:href="@{/css/custom.css}"
+	rel="stylesheet" />
 </head>
-<body>
-	Logged user: <span sec:authentication="name"></span> <br/> 
-	Roles: <span sec:authentication="principal.authorities"></span>
-	<form action="#" th:action="@{/logout}" method="POST">
-		<button type="submit">Logout</button>
-	</form>
+
+<body style="background: #FFF">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container" style="">
+			<div class="logo">
+				<div>
+					<a href="/"> <img src="../static/images/haui_lg.png"
+						th:src="@{/images/haui_lg.png}" width="40px"
+						alt="Đại học công nghiệp hà nội" /> <span
+						style="color: white; font-weight: bold">HỆ THỐNG QUẢN LÝ
+							ĐỒ ÁN TỐT NGHIỆP</span>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</nav>
+	<div class="row col-md-12"
+		style="height: 300px; background: #eee; margin-top: 60px; color: black">
+		<div class="container">
+			<h1 style="font-size: 65px; font-weight: bold">Xin chào!</h1>
+			<p>Chào mừng bạn đến với hệ thống hỗ trợ làm đồ án tốt nghiệp!</p>
+			<p>Hệ thống được thiết kế nhằm hỗ trợ sinh tra cứu, đăng kí, đề
+				xuất đề tài đồ án tốt nghiệp. Hỗ trợ tương tác giữa sinh viên và
+				giảng viên trong quá trình làm đồ án. Được phát triển bởi khoa CNTT
+				trường ĐH Công Nghiệp Hà Nội..!</p>
+			<p>
+				<button class="btn btn-success">Chi tiết</button>
+			</p>
+		</div>
+
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2 style="font-size: 20px; font-weight: bold">Danh sách giảng
+					viên hướng dẫn</h2>
+				<p>Tra cứu danh sách giảng viên hướng dẫn theo từng khoa...</p>
+				<p>
+					<a href="initDSGVHD.htm"><button class="btn btn-default">Chi
+							tiết</button></a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h2 style="font-size: 20px; font-weight: bold">Đăng kí đề tài
+					đồ án tốt nghiệp</h2>
+				<p>Đăng kí đề tài đồ án tốt nghiệp...</p>
+				<p>
+					<a href="initHompageProjectList.htm">
+						<button class="btn btn-default">Đăng kí</button>
+					</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h2 style="font-size: 20px; font-weight: bold">Quản lý tiến độ
+					dự án</h2>
+				<p>Vào hệ thống quản lý đồ án...</p>
+				<p>
+					<a href="/test">
+						<button class="btn btn-default">Login</button>
+					</a>
+
+				</p>
+			</div>
+		</div>
+	</div>
 </body>
+
+<script src="../static/bootstrap/js/bootstrap.min.js"
+	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
 </html>

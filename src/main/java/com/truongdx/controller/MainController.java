@@ -28,9 +28,14 @@ public class MainController {
 		return "login";
 	}
 	
-	@GetMapping("/Test")
+	@GetMapping("/test")
 	public String test() {
 		return "test";
+	}
+	
+	@GetMapping("/error")
+	public String error() {
+		return "404";
 	}
 	
 }

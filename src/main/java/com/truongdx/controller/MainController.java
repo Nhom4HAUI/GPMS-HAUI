@@ -28,4 +28,9 @@ public class MainController {
 		return "login";
 	}
 	
+	@GetMapping("/Test")
+	public String test() {
+		return "test";
+	}
+	
 }

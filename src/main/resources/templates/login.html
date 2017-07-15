@@ -16,7 +16,7 @@
     <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" /></div>
     
     <form class="login-form" th:action="@{/login}" method="post">
-      <input type="text" placeholder="username" name="email"/>
+      <input type="text" placeholder="username" name="username"/>
       <input type="password" placeholder="password" name="password" />
       <p th:if="${param.error}" class="error">Invalid username or password!</p>
       <button type="submit">login</button>

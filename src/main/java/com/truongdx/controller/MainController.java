@@ -2,7 +2,9 @@ package com.truongdx.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -36,6 +38,22 @@ public class MainController {
 	@GetMapping("/error")
 	public String error() {
 		return "404";
+	}
+	
+	@GetMapping("/homepageDSGV")
+	public String homepageDSGV() {
+		return "hompage_DSGV";
+	}
+	
+	@GetMapping("/ajax")
+	public String ajax(@RequestParam(value="p") String param, Model model) {
+		model.addAttribute("p", param);
+		return "b";
+	}
+	
+	@GetMapping("/layout")
+	public String test2() {
+		return "layouthompage";
 	}
 	
 }

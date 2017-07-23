@@ -2,34 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="layouthompage :: head">
-
-
 </head>
 
 <body style="background: #FFF">
 	<div class="container">
-		<nav class="navbar navbar-inverse navbar-fixed-top"
-			th:replace="layouthompage :: header"></nav>
+		<nav th:replace="layouthompage :: header"></nav>
 
-		<div class="container" style="min-height: 800px">
+		<div class="container" style="min-height: 600px">
 			<div class="row" style="margin-top: 60px">
-				<div class="">
-					<h2>Danh sách giảng viên hướng dẫn</h2>
+				<div style="margin-top: 20px; margin-left: 20px">
+					<div class="btn btn-default new-btn" >Trang
+						chủ</div>
+				</div>
+				<div style="margin-top: -35px; float: right; margin-right: 30px">
+					<div class="btn btn-success new-btn" >Đăng
+						kí đề tài</div>
+				</div>
+
+				<hr />
+				<div class="margin-left: 15px">
+					<h2 style="font-size: 30px">Danh sách giảng viên hướng dẫn</h2>
 				</div>
 				<form action="loadDSGVHD.htm" method="GET">
 					<div class="col-md-4 col-sm-12">
-						<h3>Chọn khoa:</h3>
+						<h2>Chọn khoa:</h2>
 
 						<select class="form-control" name="faculty" id="khoa">
-							<option value="cntt">Công nghệ thông tin</option>
-							<option value="english">Tiếng anh</option>
+							<option value="" th:hidden="true">Hãy lựa chọn khoa</option>
+							<th:block th:unless="${#lists.isEmpty(lsFaculty)}">
+								<option th:each="faculty, i : ${lsFaculty}"
+									th:value="${faculty}" th:text="${faculty}"></option>
+							</th:block>
 						</select>
 					</div>
 
 				</form>
-				<div id="noidung">...</div>
-			</div>
 
+			</div>
+			<div id="noidung">...</div>
 		</div>
 
 		<footer th:align="center" th:replace="layouthompage :: footer">
@@ -39,7 +49,24 @@
 </body>
 <script>
 	$(document).ready(function() {
-		$("noidung").load("/ajax");
+
+		$("#khoa").change(function() {
+			var x = $("#khoa").val();
+
+			$.get("/DSGV", {
+				faculty : x
+			}, function(data) {
+				$("#noidung").html(data);
+			});
+
+			/* $.get(s"/ajax",{p:x},function(data){
+			 alert(x);
+			 $("#noidung").html(data);
+			 }); */
+
+			/*  $("#noidung").load("/DSGV"); */
+		});
+
 	});
 </script>
 

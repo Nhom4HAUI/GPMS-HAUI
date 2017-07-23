@@ -1,7 +1,7 @@
 package com.truongdx.domain;
 
-public class Chat_Message {
-	
-	
+import java.io.Serializable;
+
+public class Chat_Message implements Serializable{
 	
 }

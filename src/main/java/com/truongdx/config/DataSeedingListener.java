@@ -8,8 +8,10 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.truongdx.domain.Project;
 import com.truongdx.domain.Role;
 import com.truongdx.domain.User;
+import com.truongdx.repository.ProjectRepository;
 import com.truongdx.repository.RoleRepository;
 import com.truongdx.repository.UserRepository;
 
@@ -21,6 +23,9 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 
 	@Autowired
 	private RoleRepository roleRepository;
+
+	@Autowired
+	private ProjectRepository projectRepository;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -52,7 +57,7 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 			userRepository.save(admin);
 		}
 
-		// Member account
+		// Student account
 		if (userRepository.findByUsername("student@gmail.com") == null) {
 			User user = new User();
 			user.setUsername("student@gmail.com");
@@ -63,6 +68,37 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 			userRepository.save(user);
 		}
 
+		// lecture account
+		if (userRepository.findByUsername("lecture") == null) {
+			User user = new User();
+			user.setUsername("lecture");
+			user.setPassword(passwordEncoder.encode("123456"));
+			user.setFaculty("CNTT");
+			user.setDegree("T.S");
+			HashSet<Role> roles = new HashSet<>();
+			roles.add(roleRepository.findByName("ROLE_LECTURE"));
+			user.setRoles(roles);
+			userRepository.save(user);
+		}
+
+		// lecture account
+		if (userRepository.findByUsername("english") == null) {
+			User user = new User();
+			user.setUsername("english");
+			user.setPassword(passwordEncoder.encode("123456"));
+			user.setFaculty("English");
+			user.setDegree("Th.S");
+			HashSet<Role> roles = new HashSet<>();
+			roles.add(roleRepository.findByName("ROLE_LECTURE"));
+			user.setRoles(roles);
+			userRepository.save(user);
+		}
+		
+		//Project
+		Project project = new Project();
+		project.setName("Xây dựng hệ thống bán hàng online");
+		project.setInstructorId(4);
+		projectRepository.save(project);
 	}
 
 }

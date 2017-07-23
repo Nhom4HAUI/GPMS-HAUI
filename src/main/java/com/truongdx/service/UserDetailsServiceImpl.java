@@ -1,6 +1,7 @@
 package com.truongdx.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,29 +18,61 @@ import com.truongdx.domain.User;
 import com.truongdx.repository.UserRepository;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-	
+public class UserDetailsServiceImpl implements UserDetailsService, UserService {
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username);
 		if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
-		
+			throw new UsernameNotFoundException("User not found");
+		}
+
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 		Set<Role> roles = user.getRoles();
 		for (Role role : roles) {
 			grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
 		}
-		
-		return new org.springframework.security.core.userdetails.User(
-				user.getUsername(), user.getPassword(), grantedAuthorities);
+
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+				grantedAuthorities);
 	}
 
-	
-	
+	@Override
+	public Iterable<User> findAll() {
+		return userRepository.findAll();
+	}
+
+	@Override
+	public List<User> seach(String q) {
+		return userRepository.findByUsernameContaining(q);
+	}
+
+	@Override
+	public void save(User user) {
+		userRepository.save(user);
+	}
+
+	@Override
+	public void delete(int id) {
+		userRepository.delete(id);
+	}
+
+	@Override
+	public User findOne(int id) {
+		return userRepository.findOne(id);
+	}
+
+	public List<String> getAllFaculty() {
+		return userRepository.getAllFaculty();
+	}
+
+	@Override
+	public List<User> findByFaculty(String faculty) {
+		return userRepository.findByFaculty(faculty);
+	}
+
 }

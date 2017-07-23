@@ -1,5 +1,6 @@
 package com.truongdx.domain;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "task")
-public class Task {
+public class Task implements Serializable {
 	
 	@Id
 	@Column(name = "task_id", nullable=false)

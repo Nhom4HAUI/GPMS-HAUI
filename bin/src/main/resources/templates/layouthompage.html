@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà
+	Nội</title>
+<!-- Bootstrap -->
+<link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css"
+	th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<!-- Font Awesome -->
+<link href="../static/vendors/font-awesome/css/font-awesome.min.css"
+	th:href="@{/vendors/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" />
+
+<!-- iCheck -->
+<link href="../static/vendors/iCheck/skins/flat/green.css"
+	th:href="@{/vendors/iCheck/skins/flat/green.css}" rel="stylesheet" />
+<!-- Datatables -->
+<link
+	href="../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"
+	th:href="@{/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	href="../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"
+	th:href="@{/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	href="../static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"
+	th:href="@{/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	href="../static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"
+	th:href="@{/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	href="../static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"
+	th:href="@{/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}"
+	rel="stylesheet" />
+
+<!-- Custom Theme Style -->
+<link href="../static/build/css/custom.min.css"
+	th:href="@{/build/css/custom.min.css}" rel="stylesheet" />
+<link href="../static/css/custom.css" th:href="@{/css/custom.css}"
+	rel="stylesheet" />
+<link href="../static/css/custom.css" th:href="@{/css/custom.css}"
+	rel="stylesheet" />
+
+<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"
+	th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<script src="../static/bootstrap/js/bootstrap.min.js"
+	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</head>
+
+<body style="background: #FFF">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-fixed-top"
+			th:fragment="header">
+			<div class="container" style="">
+				<div class="logo">
+					<div>
+						<a href="/"> <img src="../static/images/haui_lg.png"
+							th:src="@{/images/haui_lg.png}" width="40px"
+							alt="Đại học công nghiệp hà nội" /> <span
+							style="color: white; font-weight: bold">HỆ THỐNG QUẢN LÝ
+								ĐỒ ÁN TỐT NGHIỆP</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+
+		<div class="container" style="min-height: 800px">
+			<div class="row" style="margin-top: 60px">
+				<div class="">
+					<h2>Danh sách giảng viên hướng dẫn</h2>
+				</div>
+				<form action="loadDSGVHD.htm" method="GET">
+					<div class="col-md-4 col-sm-12">
+						<h3>Chọn khoa:</h3>
+
+						<select class="form-control" name="faculty" id="khoa">
+							<option value="cntt">Công nghệ thông tin</option>
+							<option value="english">Tiếng anh</option>
+						</select>
+					</div>
+
+				</form>
+				<div id="noidung">...</div>
+			</div>
+
+		</div>
+
+		<footer th:align="center" th:fragment="footer">
+			<hr></hr>
+			<div>Copyright 2017 © HAUI</div>
+			<div>
+				<strong>Hệ thống Quản lý đồ án tốt nghiệp</strong> - Phát triển bởi
+				nhóm 4 - ĐH KTPM CLC K9
+			</div>
+
+		</footer>
+
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$("#khoa").change(function() {
+				var val = $("#khoa").val();
+				//alert(val);
+				$.get("/ajax", {
+					p : val
+				}, function(data) {
+					$("#noidung").html(data);
+				});
+			});
+		});
+	</script>
+</body>
+
+
+</html>

@@ -13,9 +13,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
 	List<User> findByUsernameContaining(String q);
 
-	@Query("select distinct u.faculty from User u")
-	List<String> getAllFaculty();
-
-	List<User> findByFaculty(String faculty);
-
+	
 }

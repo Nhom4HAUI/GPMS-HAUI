@@ -66,13 +66,11 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 		return userRepository.findOne(id);
 	}
 
-	public List<String> getAllFaculty() {
-		return userRepository.getAllFaculty();
-	}
-
 	@Override
 	public List<User> findByFaculty(String faculty) {
-		return userRepository.findByFaculty(faculty);
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 
 }

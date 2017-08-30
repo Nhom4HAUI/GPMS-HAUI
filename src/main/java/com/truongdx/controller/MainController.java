@@ -39,25 +39,11 @@ public class MainController {
 		return "test";
 	}
 
-/*	@GetMapping("/error")
-	public String error() {
-		return "404";
-	}*/
 
 	@GetMapping("/homepageDSGV")
 	public String homepageDSGV(Model model) {
-		
-		List<String> lsFaculty = userService.getAllFaculty();
-		
-		/*List<String> lsFaculty = new ArrayList<>();
-		lsFaculty.add("CNNT");
-		lsFaculty.add("English");*/
-		model.addAttribute("lsFaculty", lsFaculty);
-		if(lsFaculty.isEmpty())
-			System.out.println("Deo co gi");
-		else {
-			System.out.println("OK");
-		}
+	
+	
 		return "hompage_DSGV";
 	}
 

@@ -14,61 +14,56 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "task")
 public class Task implements Serializable {
-	
-	@Id
-	@Column(name = "task_id", nullable=false)
-	int id;
-	
-	@Column(name = "task_project_id")
-	int projectid;
-	
-	@Column(name = "task_name")
-	String name;
-	
-	@Column(name="task_createdate")
-	String createdate;
-	
-	@Column(name = "task_user_create_id")
-	int usercreateid;
-	
-	@Column(name = "task_description")
-	String description;
-	
-	@Column(name ="task_result")
-	String result;
-	
-	@Column(name = "task_request")
-	String request;
-	
-	@Column(name = "task_status")
-	int status;
-	
-	@Column(name = "task_process")
-	int process;
-	
-	@Column(name = "task_enddate")
-	String enddate;
-	
-	@Column(name = "task_note")
-	String note;
-	
-	@Column(name = "task_isdelete")
-	int isdelete;
-	
-	@Column(name = "task_deletedate")
-	String deletedate;
-	
-	@Column(name = "task_user_delete_id")
-	int deleteid;
 
-	
+	@Id
+	@Column(name = "task_id", nullable = false)
+	private int id;
+
+	@Column(name = "task_name")
+	private String name;
+
+	@Column(name = "task_createdate")
+	private String createdate;
+
+	@Column(name = "task_user_create_id")
+	private int usercreateid;
+
+	@Column(name = "task_description")
+	private String description;
+
+	@Column(name = "task_result")
+	private String result;
+
+	@Column(name = "task_request")
+	private String request;
+
+	@Column(name = "task_status")
+	private int status;
+
+	@Column(name = "task_process")
+	private int process;
+
+	@Column(name = "task_enddate")
+	private String enddate;
+
+	@Column(name = "task_note")
+	private String note;
+
+	@Column(name = "task_isdelete")
+	private int isdelete;
+
+	@Column(name = "task_deletedate")
+	private String deletedate;
+
+	@Column(name = "task_user_delete_id")
+	private int deleteid;
+
 	@ManyToOne
-	@JoinColumn(name="project_id", nullable = false)
-	Project project;
-	
+	private GraduationProject graduationProject;
+
 	@OneToMany(mappedBy = "task")
-	Set<Comment> comments;
-	
+	private Set<Comment> comments;
+
 	public String getEnddate() {
 		return enddate;
 	}
@@ -77,28 +72,12 @@ public class Task implements Serializable {
 		this.enddate = enddate;
 	}
 
-	public Project getProject() {
-		return project;
-	}
-
-	public void setProject(Project project) {
-		this.project = project;
-	}
-
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getProjectid() {
-		return projectid;
-	}
-
-	public void setProjectid(int projectid) {
-		this.projectid = projectid;
 	}
 
 	public String getName() {
@@ -164,7 +143,6 @@ public class Task implements Serializable {
 	public void setProcess(int process) {
 		this.process = process;
 	}
-
 
 	public String getNote() {
 		return note;

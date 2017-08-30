@@ -35,7 +35,7 @@ public class Document implements Serializable{
 	
 	
 	@OneToOne
-	Project project;
+	GraduationProject graduationProject;
 	
 	public int getId() {
 		return id;

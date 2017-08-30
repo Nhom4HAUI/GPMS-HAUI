@@ -5,12 +5,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,18 +33,18 @@ public class User implements Serializable {
 	@Column(name = "user_password", nullable = false)
 	private String password;
 
-	@Column(name = "user_fullname")
-	private String fullname;
+	@Column(name = "user_firstName")
+	private String firstName;
 
+	@Column(name = "user_lastName")
+	private String lastName;
+	
 	@Column(name = "user_dateofbirth")
 	private String dateofbirth;
 
 	@Column(name = "user_gender")
 	private boolean gender;
-
-	@Column(name = "user_faculty")
-	private String faculty;
-
+	
 	@Column(name = "user_degree")
 	private String degree;
 
@@ -73,9 +75,6 @@ public class User implements Serializable {
 	@Column(name = "user_description")
 	private String description;
 
-	@Column(name = "user_class")
-	private String userClass;
-
 	@Column(name = "user_countlogin")
 	private int countLogin;
 
@@ -95,11 +94,47 @@ public class User implements Serializable {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 	
-	@OneToMany(mappedBy="users")
+	@OneToMany(mappedBy="instructor")
 	private Set<Project> projects;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private GraduationProject graduationProjects; 
 	
 	@OneToMany(mappedBy="user")
 	private Set<Comment> comments;
+
+	@ManyToOne
+	private Classes myClass;
+	
+	
+	
+	public Set<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
+	}
+
+	public Set<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Classes getMyClass() {
+		return myClass;
+	}
+
+	public void setMyClass(Classes myClass) {
+		this.myClass = myClass;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public int getId() {
 		return id;
@@ -141,12 +176,21 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
-	public String getFullname() {
-		return fullname;
+
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getDateofbirth() {
@@ -165,13 +209,7 @@ public class User implements Serializable {
 		this.gender = gender;
 	}
 
-	public String getFaculty() {
-		return faculty;
-	}
 
-	public void setFaculty(String faculty) {
-		this.faculty = faculty;
-	}
 
 	public String getDegree() {
 		return degree;
@@ -243,14 +281,6 @@ public class User implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getUserClass() {
-		return userClass;
-	}
-
-	public void setUserClass(String userClass) {
-		this.userClass = userClass;
 	}
 
 	public int getCountLogin() {

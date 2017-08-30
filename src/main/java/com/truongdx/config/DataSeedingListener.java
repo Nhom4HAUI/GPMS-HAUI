@@ -73,7 +73,6 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 			User user = new User();
 			user.setUsername("lecture");
 			user.setPassword(passwordEncoder.encode("123456"));
-			user.setFaculty("CNTT");
 			user.setDegree("T.S");
 			HashSet<Role> roles = new HashSet<>();
 			roles.add(roleRepository.findByName("ROLE_LECTURE"));
@@ -86,7 +85,6 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 			User user = new User();
 			user.setUsername("english");
 			user.setPassword(passwordEncoder.encode("123456"));
-			user.setFaculty("English");
 			user.setDegree("Th.S");
 			HashSet<Role> roles = new HashSet<>();
 			roles.add(roleRepository.findByName("ROLE_LECTURE"));
@@ -95,10 +93,6 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 		}
 		
 		//Project
-		Project project = new Project();
-		project.setName("Xây dựng hệ thống bán hàng online");
-		project.setInstructorId(4);
-		projectRepository.save(project);
 	}
 
 }

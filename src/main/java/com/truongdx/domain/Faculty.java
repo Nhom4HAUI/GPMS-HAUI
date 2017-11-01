@@ -18,7 +18,7 @@ public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column(name = "faculty_codeID", nullable = false)
 	private String codeID;
 	

@@ -18,7 +18,7 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @Table(name = "comment")
 public class Comment implements  Serializable{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "comment_id", nullable = false)

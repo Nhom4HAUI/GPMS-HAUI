@@ -17,7 +17,7 @@ public class Document implements Serializable{
 	@Id
 	@Column(name = "document_id", nullable = false)
 	int id;
-	
+
 	@Column(name = "document_status")
 	int status;
 	

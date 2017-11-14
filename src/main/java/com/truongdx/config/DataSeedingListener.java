@@ -8,91 +8,13 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.truongdx.domain.Project;
-import com.truongdx.domain.Role;
-import com.truongdx.domain.User;
-import com.truongdx.repository.ProjectRepository;
-import com.truongdx.repository.RoleRepository;
-import com.truongdx.repository.UserRepository;
 
 @Component
 public class DataSeedingListener implements ApplicationListener<ContextRefreshedEvent> {
 
-	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
-	private RoleRepository roleRepository;
-
-	@Autowired
-	private ProjectRepository projectRepository;
-
-	@Autowired
-	private PasswordEncoder passwordEncoder;
 
 	@Override
-	public void onApplicationEvent(ContextRefreshedEvent arg0) {
-		// Roles
-		if (roleRepository.findByName("ROLE_ADMIN") == null) {
-			roleRepository.save(new Role("ROLE_ADMIN"));
-		}
+	public void onApplicationEvent(ContextRefreshedEvent event) {
 
-		if (roleRepository.findByName("ROLE_STUDENT") == null) {
-			roleRepository.save(new Role("ROLE_STUDENT"));
-		}
-
-		if (roleRepository.findByName("ROLE_LECTURE") == null) {
-			roleRepository.save(new Role("ROLE_LECTURE"));
-		}
-
-		// Admin account
-		if (userRepository.findByUsername("admin@gmail.com") == null) {
-			User admin = new User();
-			admin.setUsername("admin@gmail.com");
-			admin.setPassword(passwordEncoder.encode("123456"));
-			HashSet<Role> roles = new HashSet<>();
-			roles.add(roleRepository.findByName("ROLE_ADMIN"));
-			roles.add(roleRepository.findByName("ROLE_LECTURE"));
-			admin.setRoles(roles);
-			userRepository.save(admin);
-		}
-
-		// Student account
-		if (userRepository.findByUsername("student@gmail.com") == null) {
-			User user = new User();
-			user.setUsername("student@gmail.com");
-			user.setPassword(passwordEncoder.encode("123456"));
-			HashSet<Role> roles = new HashSet<>();
-			roles.add(roleRepository.findByName("ROLE_STUDENT"));
-			user.setRoles(roles);
-			userRepository.save(user);
-		}
-
-		// lecture account
-		if (userRepository.findByUsername("lecture") == null) {
-			User user = new User();
-			user.setUsername("lecture");
-			user.setPassword(passwordEncoder.encode("123456"));
-			user.setDegree("T.S");
-			HashSet<Role> roles = new HashSet<>();
-			roles.add(roleRepository.findByName("ROLE_LECTURE"));
-			user.setRoles(roles);
-			userRepository.save(user);
-		}
-
-		// lecture account
-		if (userRepository.findByUsername("english") == null) {
-			User user = new User();
-			user.setUsername("english");
-			user.setPassword(passwordEncoder.encode("123456"));
-			user.setDegree("Th.S");
-			HashSet<Role> roles = new HashSet<>();
-			roles.add(roleRepository.findByName("ROLE_LECTURE"));
-			user.setRoles(roles);
-			userRepository.save(user);
-		}
-		
-		//Project
 	}
-
 }

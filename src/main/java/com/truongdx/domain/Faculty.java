@@ -1,42 +1,42 @@
 package com.truongdx.domain;
 
-import java.util.Date;
+import javax.persistence.*;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+/**
+ * @author truon
+ * @version 1.0
+ * @created 05-Nov-2017 4:08:31 PM
+ */
 
 @Entity
 @Table(name = "faculty")
 public class Faculty {
-	
+
+	private String facultyId;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
-	@Column(name = "faculty_codeID", nullable = false)
-	private String codeID;
-	
-	@Column (name = "faculty_name", nullable = false)
 	private String name;
-	
-	@Column(name = "faculty_establishedDate")
-	private Date dateEstablished;
-	
-	@Column(name = "faculty_isActive")
-	private boolean active;
-	
-	@Column(name = "faculty_isDelete")
-	private boolean delete;
-	
-	
+
 	@OneToMany(mappedBy = "faculty")
-	private Set<Classes> classes;
+	public Set<Classes> classes;
+
+	@OneToMany(mappedBy = "faculty")
+	public Set<User> user;
+
+	public Faculty(){
+
+	}
+
+	public String getFacultyId() {
+		return facultyId;
+	}
+
+	public void setFacultyId(String facultyId) {
+		this.facultyId = facultyId;
+	}
 
 	public int getId() {
 		return id;
@@ -44,14 +44,6 @@ public class Faculty {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getCodeID() {
-		return codeID;
-	}
-
-	public void setCodeID(String codeID) {
-		this.codeID = codeID;
 	}
 
 	public String getName() {
@@ -62,30 +54,6 @@ public class Faculty {
 		this.name = name;
 	}
 
-	public Date getDateEstablished() {
-		return dateEstablished;
-	}
-
-	public void setDateEstablished(Date dateEstablished) {
-		this.dateEstablished = dateEstablished;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
-	public boolean isDelete() {
-		return delete;
-	}
-
-	public void setDelete(boolean delete) {
-		this.delete = delete;
-	}
-
 	public Set<Classes> getClasses() {
 		return classes;
 	}
@@ -93,7 +61,12 @@ public class Faculty {
 	public void setClasses(Set<Classes> classes) {
 		this.classes = classes;
 	}
-	
-	
-	
+
+	public Set<User> getUser() {
+		return user;
+	}
+
+	public void setUser(Set<User> user) {
+		this.user = user;
+	}
 }

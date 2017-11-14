@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-/*Class custom login susscess*/
+/*Classes custom login susscess*/
 public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
 	

@@ -7,22 +7,18 @@ import javax.persistence.*;
  * @version 1.0
  * @created 05-Nov-2017 4:08:31 PM
  */
-public class Score {
 
-	private int examinationCouncilId;
+@Entity
+@Table(name = "score")
+public class Score {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
 	private int lecturerId;
 	private int score;
-
-	@OneToOne(mappedBy = "score")
-	private Graduationthesis graduationthesis;
-
-	@ManyToOne
-	private ExaminationCouncil examinationCouncil;
+	private int examinationCouncilId;
+	private int graduationThesisId;
 
 
 
@@ -62,19 +58,11 @@ public class Score {
 		this.score = score;
 	}
 
-	public Graduationthesis getGraduationthesis() {
-		return graduationthesis;
+	public int getGraduationThesisId() {
+		return graduationThesisId;
 	}
 
-	public void setGraduationthesis(Graduationthesis graduationthesis) {
-		this.graduationthesis = graduationthesis;
-	}
-
-	public ExaminationCouncil getExaminationCouncil() {
-		return examinationCouncil;
-	}
-
-	public void setExaminationCouncil(ExaminationCouncil examinationCouncil) {
-		this.examinationCouncil = examinationCouncil;
+	public void setGraduationThesisId(int graduationThesisId) {
+		this.graduationThesisId = graduationThesisId;
 	}
 }

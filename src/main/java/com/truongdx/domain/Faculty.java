@@ -12,25 +12,27 @@ import java.util.Set;
 @Entity
 @Table(name = "faculty")
 public class Faculty {
-
-	private String facultyId;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private String facultyId;
 	private String name;
+    private int leaderId;
 
-	@OneToMany(mappedBy = "faculty")
-	public Set<Classes> classes;
-
-	@OneToMany(mappedBy = "faculty")
-	public Set<User> user;
 
 	public Faculty(){
 
 	}
 
-	public String getFacultyId() {
+    public int getLeaderId() {
+        return leaderId;
+    }
+
+    public void setLeaderId(int leaderId) {
+        this.leaderId = leaderId;
+    }
+
+    public String getFacultyId() {
 		return facultyId;
 	}
 
@@ -54,19 +56,4 @@ public class Faculty {
 		this.name = name;
 	}
 
-	public Set<Classes> getClasses() {
-		return classes;
-	}
-
-	public void setClasses(Set<Classes> classes) {
-		this.classes = classes;
-	}
-
-	public Set<User> getUser() {
-		return user;
-	}
-
-	public void setUser(Set<User> user) {
-		this.user = user;
-	}
 }

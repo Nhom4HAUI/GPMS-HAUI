@@ -1,8 +1,8 @@
 package com.truongdx.service;
 
-import java.util.List;
-
 import com.truongdx.domain.User;
+
+import java.util.List;
 
 public interface UserService {
 	

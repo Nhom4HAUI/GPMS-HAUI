@@ -12,33 +12,31 @@ import java.util.Set;
 @Entity
 @Table(name = "examinationCouncil")
 public class ExaminationCouncil {
-
-    private int graduationThesisId;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-
-    @OneToMany(mappedBy = "examinationCouncil")
-    private Set<Leader> leaders;
-
-    private int listLectureID;
+    private int listLectureId;
     private String name;
-
-    @OneToMany(mappedBy = "examinationCouncil")
-    private Set<Score> score;
+    private int lectureId;
 
     public ExaminationCouncil() {
 
     }
 
-    public int getGraduationThesisId() {
-        return graduationThesisId;
+    public int getListLectureId() {
+        return listLectureId;
     }
 
-    public void setGraduationThesisId(int graduationThesisId) {
-        this.graduationThesisId = graduationThesisId;
+    public void setListLectureId(int listLectureId) {
+        this.listLectureId = listLectureId;
+    }
+
+    public int getLectureId() {
+        return lectureId;
+    }
+
+    public void setLectureId(int lectureId) {
+        this.lectureId = lectureId;
     }
 
     public int getId() {
@@ -49,22 +47,6 @@ public class ExaminationCouncil {
         this.id = id;
     }
 
-    public Set<Leader> getLeaders() {
-        return leaders;
-    }
-
-    public void setLeaders(Set<Leader> leaders) {
-        this.leaders = leaders;
-    }
-
-    public int getListLectureID() {
-        return listLectureID;
-    }
-
-    public void setListLectureID(int listLectureID) {
-        this.listLectureID = listLectureID;
-    }
-
     public String getName() {
         return name;
     }
@@ -73,11 +55,4 @@ public class ExaminationCouncil {
         this.name = name;
     }
 
-    public Set<Score> getScore() {
-        return score;
-    }
-
-    public void setScore(Set<Score> score) {
-        this.score = score;
-    }
 }

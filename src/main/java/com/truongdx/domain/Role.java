@@ -12,16 +12,37 @@ public class Role {
     private int id;
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<User> users;
+    @ManyToMany(mappedBy = "roles")
+    private Set<Student> studentRoles;
+    @ManyToMany(mappedBy = "roles")
+    private Set<Lecturer> lectureRoles;
+    @ManyToMany(mappedBy = "roles")
+    private Set<Leader> leaderRoles;
+/*    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;*/
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<Student> getStudentRoles() {
+        return studentRoles;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setStudentRoles(Set<Student> studentRoles) {
+        this.studentRoles = studentRoles;
+    }
+
+    public Set<Lecturer> getLectureRoles() {
+        return lectureRoles;
+    }
+
+    public void setLectureRoles(Set<Lecturer> lectureRoles) {
+        this.lectureRoles = lectureRoles;
+    }
+
+    public Set<Leader> getLeaderRoles() {
+        return leaderRoles;
+    }
+
+    public void setLeaderRoles(Set<Leader> leaderRoles) {
+        this.leaderRoles = leaderRoles;
     }
 
     public int getId() {

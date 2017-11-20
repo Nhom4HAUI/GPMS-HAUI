@@ -1,5 +1,6 @@
 package com.truongdx.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -7,19 +8,60 @@ import java.util.Date;
  * @version 1.0
  * @created 05-Nov-2017 4:08:32 PM
  */
+
+@Entity
+@Table(name = "sessionGP")
 public class SessionGP {
 
-	private int duration;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private int duration;
 	private int leaderId;
 	private Date startDate;
 	private int year;
-	public Graduationthesis
-	 m_Graduationthesis
-	;
 
 	public SessionGP(){
 
 	}
 
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getLeaderId() {
+		return leaderId;
+	}
+
+	public void setLeaderId(int leaderId) {
+		this.leaderId = leaderId;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
 }

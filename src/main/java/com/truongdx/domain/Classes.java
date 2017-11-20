@@ -7,27 +7,13 @@ import java.util.Set;
 @Entity
 @Table(name = "class")
 public class Classes {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 	private String classId;
-
-	@ManyToOne
-	private Faculty faculty;
+	private int facultyId;
 	private String facultyName;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
 	private String name;
-
-	@OneToMany(mappedBy = "classes")
-	private Set<Student> student;
-
-    public Set<Student> getStudent() {
-        return student;
-    }
-
-    public void setStudent(Set<Student> student) {
-        this.student = student;
-    }
 
     public Classes(){	}
 
@@ -39,15 +25,15 @@ public class Classes {
 		this.classId = classId;
 	}
 
-    public Faculty getFaculty() {
-        return faculty;
-    }
+	public int getFacultyId() {
+		return facultyId;
+	}
 
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
-    }
+	public void setFacultyId(int facultyId) {
+		this.facultyId = facultyId;
+	}
 
-    public String getFacultyName() {
+	public String getFacultyName() {
 		return facultyName;
 	}
 

@@ -20,8 +20,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 
+    @Autowired
     private LeaderRepository leaderRepository;
+    @Autowired
     private LecturerRepository lecturerRepository;
+    @Autowired
     private StudentRepository studentRepository;
 
 

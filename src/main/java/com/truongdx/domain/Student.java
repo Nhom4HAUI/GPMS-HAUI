@@ -21,7 +21,7 @@ public class Student {
     private String hktt;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String lastName;
     private String moble;

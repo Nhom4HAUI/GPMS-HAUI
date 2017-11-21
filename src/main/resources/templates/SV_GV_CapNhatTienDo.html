@@ -1,0 +1,91 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SV_Masterpage.master" AutoEventWireup="true" CodeFile="SV_GV_CapNhatTienDo.aspx.cs" Inherits="SV_GV_CapNhatTienDo" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="right_col" role="main">
+        <div class="clearfix"></div>
+        <!-- end page title -->
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_title">
+                    <h2>Thêm công việc</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_panel">
+                    <div style="float: left">
+                        <button class="btn btn-default new-btn">❮ Quay lại</button>
+                    </div>
+                    <div class="x_content">
+                        <div class="form-horizontal form-label-left;" style="font-family: Cambria; font-size: 18px">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3">
+                                    Tên công việc
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="text" id="first-name1" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                    Đầu vào dự kiến
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="text" id="first-name2" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                    Đầu ra dự kiến
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="text" id="first-name3" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                    Ngày bắt đầu
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input placeholder="<<ngày hôm nay>>" class="form-control col-md-7 col-xs-12" type="text" name="txtTimeDK" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                    Ngày dự kiến kết thúc
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input placeholder="Nhấp chuột để hiện lịch..." class="form-control col-md-7 col-xs-12" type="text" name="txtTimeDK" id="datepicker" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                    Link báo cáo
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="text" id="first-name10" class="form-control col-md-7 col-xs-12" />
+                                </div>
+                            </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3" for="lydo">
+                                    Ghi chú
+                                </label>
+                                <div class="col-md-6 col-sm-6">
+                                     <textarea rows="4" class="form-control col-md-7 col-xs-12"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float: right; margin-top: 30px; margin-right: 40%">
+                            <button  class="btn btn-danger new-btn">✘ Hủy</button>
+
+                            <button  class="btn btn-success new-btn">➕ Thêm</button>
+
+                            <button  class="btn btn-info new-btn">✔ Cập nhật</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>
+

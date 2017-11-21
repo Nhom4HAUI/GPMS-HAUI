@@ -19,6 +19,11 @@ public class Faculty {
 	private String name;
     private int leaderId;
 
+	public Faculty(String facultyId, String name, int leaderId) {
+		this.facultyId = facultyId;
+		this.name = name;
+		this.leaderId = leaderId;
+	}
 
 	public Faculty(){
 

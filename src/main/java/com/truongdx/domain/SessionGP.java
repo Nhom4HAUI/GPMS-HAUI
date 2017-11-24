@@ -20,7 +20,16 @@ public class SessionGP {
 	private int leaderId;
 	private Date startDate;
 	private int year;
+	@Column(name = "isDelte", nullable = true)
+	private boolean delete;
 
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
 	public SessionGP(){
 
 	}

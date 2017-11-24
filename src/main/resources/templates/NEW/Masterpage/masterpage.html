@@ -1,0 +1,250 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head th:fragment="head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin - Start Bootstrap Template</title>
+    <!-- Bootstrap core CSS-->
+    <link href="../../../static/NEW/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/NEW/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="../../../static/NEW/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/NEW/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="../../../static/NEW/vendor/datatables/dataTables.bootstrap4.css" th:href="@{/NEW/vendor/datatables/dataTables.bootstrap4.css}" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="../../../static/NEW/css/sb-admin.css" th:href="@{/NEW/css/sb-admin.css}" rel="stylesheet">
+    <style type="text/css">/* Chart.js */
+    @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav" th:fragment="navbar">
+    <a class="navbar-brand" href="index.html" th:href="@{/student/index}">Hệ thống quản lý đồ án tốt nghiệp HAUI</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Trang chủ">
+                <a class="nav-link" href="index.html" th:href="@{/student/index}">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <span class="nav-link-text">Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Quản lý đồ án">
+                <a class="nav-link" href="" th:href="@{/student/task}">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">Quản lý đồ án</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tài liệu tham khảo">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">Tài liệu tham khảo</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Đề tài">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion" aria-expanded="false">
+                    <i class="fa fa-fw fa-wrench"></i>
+                    <span class="nav-link-text">Đề tài</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents" style="">
+                    <li>
+                        <a href="#" th:href="@{/student/listProject}">Đăng kí đề tài</a>
+                    </li>
+                    <li>
+                        <a href="#" th:href="@{/student/cancelProject}">Hủy đề tài</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Thông tin hội đồng">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion" aria-expanded="false">
+                    <i class="fa fa-fw fa-file"></i>
+                    <span class="nav-link-text">Thông tin hội đồng</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseExamplePages" style="">
+                    <li>
+                        <a href="#">Thông tin đợt bảo vệ</a>
+                    </li>
+                    <li>
+                        <a href="#">Hội đồng phản biện</a>
+                    </li>
+                    <li>
+                        <a href="#">Hội đồng chấm</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Thông tin cá nhân">
+                <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion" aria-expanded="true">
+                    <i class="fa fa-fw fa-sitemap"></i>
+                    <span class="nav-link-text">Thông tin cá nhân</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Logout">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-link"></i>
+                    <span class="nav-link-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-envelope"></i>
+                    <span class="d-lg-none">Messages
+              <span class="badge badge-pill badge-primary">12 New</span>
+            </span>
+                    <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">New Messages:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>David Miller</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>Jane Smith</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>John Doe</strong>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item small" href="#">View all messages</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-bell"></i>
+                    <span class="d-lg-none">Alerts
+              <span class="badge badge-pill badge-warning">6 New</span>
+            </span>
+                    <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header">New Alerts:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+                        <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item small" href="#">View all alerts</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Search for...">
+                        <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+                    </div>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+    </div>
+
+    <th:block th:fragment="footer">
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright © Team 4 - KTPM CLC K9 2017</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../../static/NEW/vendor/jquery/jquery.min.js" th:src="@{/NEW/vendor/jquery/jquery.min.js}"></script>
+    <script src="../../../static/NEW/vendor/bootstrap/js/bootstrap.bundle.min.js" th:src="@{/NEW/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../../../static/NEW/vendor/jquery-easing/jquery.easing.min.js" th:src="@{/NEW/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../../../static/NEW/vendor/chart.js/Chart.min.js" th:src="@{/NEW/vendor/chart.js/Chart.min.js}"></script>
+    <script src="../../../static/NEW/vendor/datatables/jquery.dataTables.js" th:src="@{/NEW/vendor/datatables/jquery.dataTables.js}"></script>
+    <script src="../../../static/NEW/vendor/datatables/dataTables.bootstrap4.js" th:src="@{/NEW/vendor/datatables/dataTables.bootstrap4.js}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../../../static/NEW/js/sb-admin.min.js" th:src="@{/NEW/js/sb-admin.min.js}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="../../../static/NEW/js/sb-admin-datatables.min.js" th:src="@{/NEW/js/sb-admin-datatables.min.js}"></script>
+    <script src="../../../static/NEW/js/sb-admin-charts.min.js" th:src="@{/NEW/js/sb-admin-charts.min.js}"></script>
+    </th:block>
+</div>
+
+
+
+</body></html>

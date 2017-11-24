@@ -20,7 +20,16 @@ public class Role {
     private Set<Leader> leaderRoles;
 /*    @ManyToMany(mappedBy = "roles")
     private Set<User> users;*/
+@Column(name = "isDelte", nullable = true)
+private boolean delete;
 
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete(boolean delete) {
+        this.delete = delete;
+    }
     public Role(){}
 
     public Role(String name){

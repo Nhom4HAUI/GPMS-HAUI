@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="NEW/Masterpage/masterpage :: head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+
+
+    <div class="container-fluid">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Danh sách đề tài
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                       cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                                       style="width: 100%;">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-sort="ascending"
+                                            aria-label="Mã đề tài: activate to sort column descending" style="width: 261px;">
+                                            Mã đề tài
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Tên đề tài: activate to sort column ascending"
+                                            style="width: 394px;">Tên đề tài
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Thông tin đề tài: activate to sort column ascending"
+                                            style="width: 194px;">Thông tin đề tài
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Giảng viên hướng dẫn: activate to sort column ascending"
+                                            style="width: 100px;">Giảng viên hướng dẫn
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Thông tin giảng viên: activate to sort column ascending"
+                                            style="width: 189px;">Thông tin giảng viên
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Đăng ký: activate to sort column ascending"
+                                            style="width: 156px;">Đăng ký
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Mã đề tài</th>
+                                        <th rowspan="1" colspan="1">Tên đề tài</th>
+                                        <th rowspan="1" colspan="1">Thông tin đề tài</th>
+                                        <th rowspan="1" colspan="1">Giảng viên hướng dẫn</th>
+                                        <th rowspan="1" colspan="1">Thông tin giảng viên</th>
+                                        <th rowspan="1" colspan="1">Đăng ký</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">1</td>
+                                        <td>Quản lý đồ án tốt nghiệp</td>
+                                        <td>Xây dựng hệ thống quản lý đồ án tốt nghiệp trường Đại học Công Nghiệp Hà Nội</td>
+                                        <td>Th.S Hoàng Quang Huy</td>
+                                        <td><a>Chi tiết</a></td>
+                                        <td>
+                                            <a th:href="@{/student/registerProject}"><button class="btn btn-info new-btn">Đăng kí ❯</button></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+    <th:block th:replace="NEW/Masterpage/masterpage :: footer"></th:block>
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.truongdx.service;
 
 import com.truongdx.domain.Lecturer;
+import com.truongdx.repository.FacultyRepository;
 import com.truongdx.repository.LecturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,9 @@ import java.util.List;
 
 @Service
 public class LecturerServiceImpl implements LecturerService {
+
+    @Autowired
+    FacultyRepository facultyRepository;
 
     @Autowired
     LecturerRepository lecturerRepository;
@@ -30,7 +34,7 @@ public class LecturerServiceImpl implements LecturerService {
 
     @Override
     public List<Lecturer> findByFaculty(String faculty) {
-        return null;
+        return lecturerRepository.findByFacultyId(facultyRepository.findByFacultyId(faculty).getId());
     }
 
     @Override

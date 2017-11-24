@@ -17,7 +17,16 @@ public class Team {
 	private int id;
 	private int registrationFormId;
 	private String name;
+	@Column(name = "isDelte", nullable = true)
+	private boolean delete;
 
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
 	public Team(){
 
 	}

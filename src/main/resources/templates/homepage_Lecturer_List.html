@@ -54,7 +54,7 @@
 			var x = $("#khoa").val();
 
 			$.get("/DSGV", {
-				faculty : x
+				facultyId : x
 			}, function(data) {
 				$("#noidung").html(data);
 			});
@@ -64,7 +64,7 @@
 			 $("#noidung").html(data);
 			 }); */
 
-			/*  $("#noidung").load("/DSGV"); */
+			 /* $("#noidung").load("/DSGV"); */
 		});
 
 	});

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="NEW/Masterpage/masterpage_Lecturer :: head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<nav th:replace="NEW/Masterpage/masterpage_Lecturer :: navbar"></nav>
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" th:href="@{/lecturer/index}">Đề tài</a>
+            </li>
+            <li class="breadcrumb-item active">Danh sách đề tài</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i>Danh sách đề tài
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                       cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                                       style="width: 100%;">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-sort="ascending"
+                                            aria-label="STT: activate to sort column descending" style="width: 50px;">
+                                            STT
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Tên công việc: activate to sort column ascending"
+                                            style="width: 194px;">Tên đề tài
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Đầu vào dự kiến: activate to sort column ascending"
+                                            style="width: 394px;">Thông tin đề tài
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Ghi chú: activate to sort column ascending"
+                                            style="width: 156px;">Ghi chú
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Ghi chú: activate to sort column ascending"
+                                            style="width: 156px;">Trạng thái
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Thay đổi: activate to sort column ascending"
+                                            style="width: 156px;">
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">STT</th>
+                                        <th rowspan="1" colspan="1">Tên đề tài</th>
+                                        <th rowspan="1" colspan="1">Tóm tắt đề tài</th>
+                                        <th rowspan="1" colspan="1">Trạng thái</th>
+                                        <th rowspan="1" colspan="1"></th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">1</td>
+                                        <td><a th:href="@{#}">Quản lý đồ án tốt nghiệp</a></td>
+                                        <td>Xây dựng hệ thống quản lý đồ án tốt nghiệp</td>
+                                        <td>Không có gì</td>
+                                        <td>private</td>
+                                        <td>
+                                            <a th:href="@{/lecturer/projectLeading}">
+                                                <button class="btn btn-info new-btn">Chọn ❯</button>
+                                            </a>
+                                            <a th:href="@{/lecturer/projectLeading}">
+                                                <button style="width: 109.36px" class="btn btn-info new-btn btn-danger">
+                                                    Xóa ❯
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">1</td>
+                                        <td><a th:href="@{#}">Quản lý đồ án tốt nghiệp</a></td>
+                                        <td>Xây dựng hệ thống quản lý đồ án tốt nghiệp</td>
+                                        <td>Không có gì</td>
+                                        <td>public</td>
+                                        <td>
+                                            <a th:href="@{/lecturer/projectLeading}">
+                                                <button class="btn btn-info new-btn">Chọn ❯</button>
+                                            </a>
+                                            <a th:href="@{/lecturer/projectLeading}">
+                                                <button style="width: 109.36px" class="btn btn-info new-btn btn-danger">
+                                                    Xóa ❯
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr><tr role="row" class="even">
+                                        <td class="sorting_1">1</td>
+                                        <td><a th:href="@{#}">Quản lý đồ án tốt nghiệp</a></td>
+                                        <td>Xây dựng hệ thống quản lý đồ án tốt nghiệp</td>
+                                        <td>Không có gì</td>
+                                        <td>Đang hướng dẫn</td>
+                                        <td>
+                                            <a th:href="@{/lecturer/projectLeading}">
+                                                <button class="btn btn-info new-btn">Chọn ❯</button>
+                                            </a>
+                                            <a th:href="@{/lecturer/projectLeading}">
+                                                <button style="width: 109.36px" class="btn btn-info new-btn btn-danger">
+                                                    Xóa ❯
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+
+    <th:block th:replace="NEW/Masterpage/masterpage_Lecturer :: footer"></th:block>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="NEW/Masterpage/masterpage :: head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<nav th:replace="NEW/Masterpage/masterpage :: navbar"></nav>
+
+<div class="content-wrapper">
+    <div class="container-fluid" >
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" th:href="@{/student/index}">Trang Chủ</a>
+            </li>
+            <li class="breadcrumb-item active">Tiến độ</li>
+        </ol>
+
+        <div style="margin-left: 15px">
+            <h2>Thêm tiến độ</h2>
+        </div>
+
+        <form th:fragment="addTask">
+            <input class="form-control" type="text" placeholder="Mã đề tài">
+            <input class="form-control" type="text" placeholder="Tên đề tài">
+            <input class="form-control" type="text" placeholder="Tên công việc">
+            <input class="form-control" type="text" placeholder="Đầu vào dự kiến">
+            <input class="form-control" type="text" placeholder="Đầu ra dự kiến">
+            <input class="form-control" type="text" placeholder="Ngày bắt đầu">
+            <input class="form-control" type="text" placeholder="Ngày kết thúc">
+            <input class="form-control" type="text" placeholder="Kết quả">
+            <div class="form-group">
+                <label for="summary">Ghi chú</label>
+                <textarea class="form-control" id="summary" rows="3"></textarea>
+            </div>
+            <div align="center">
+                <button type="submit" class="btn btn-success">Thêm tiến độ</button>
+                <button type="submit" class="btn btn-danger">Reset</button>
+                <button type="submit" class="btn btn-dark">Hủy</button>
+            </div>
+        </form>
+
+    </div>
+
+    <th:block th:replace="/NEW/Masterpage/masterpage :: footer"></th:block>
+</div>
+</body>
+
+<script>
+    $(document).ready(function () {
+
+        $("#khoa").change(function () {
+            var x = $("#khoa").val();
+
+            $.get("/listProject", {
+                facultyId: x
+            }, function (data) {
+                $("#noidung").html(data);
+            });
+
+            /* $.get(s"/ajax",{p:x},function(data){
+             alert(x);
+             $("#noidung").html(data);
+             }); */
+
+            /* $("#noidung").load("/DSGV"); */
+        });
+
+    });
+</script>
+</html>

@@ -9,4 +9,6 @@ public interface LecturerRepository extends CrudRepository<Lecturer, Integer> {
     Lecturer findByUsername(String username);
 
     List<Lecturer> findByUsernameContaining(String q);
+
+    List<Lecturer> findByFacultyId(int facultyId);
 }

@@ -22,7 +22,16 @@ public class Project {
 	private String requirement;
 	private String resuilt;
 	private String summary;
+	@Column(name = "isDelte", nullable = true)
+	private boolean delete;
 
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
 	public Project(){
 
 	}

@@ -5,65 +5,68 @@
 <head>
 <meta charset="utf-8" />
 
-<title>Hệ thống quản lý đồ án tốt nghiệp Đại Học Công Nghiệp Hà
-	Nội</title>
+	<link rel="stylesheet" type="text/css" href="../build/css/jquery.dataTables.min.css"
+		  th:href="@{/build/css/jquery.dataTables.min.css}"/>
+	<!-- Bootstrap -->
+	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+		  th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}"/>
+	<!-- Datatables -->
+	<link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"
+		  th:href="@{/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}" rel="stylesheet"/>
+	<link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"
+		  th:href="@{/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}" rel="stylesheet"/>
+	<link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"
+		  th:href="@{/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}" rel="stylesheet"/>
+	<link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"
+		  th:href="@{/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}" rel="stylesheet"/>
+	<link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"
+		  th:href="@{/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}" rel="stylesheet"/>
+	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css"
+		  th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet"/>
+	<!-- Font Awesome -->
+	<link href="../vendors/font-awesome/css/font-awesome.min.css"
+		  th:href="@{/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+	<!-- NProgress -->
+	<link href="../vendors/nprogress/nprogress.css" th:href="@{/vendors/nprogress/nprogress.css}" rel="stylesheet"/>
+	<!-- iCheck -->
+	<link href="../vendors/iCheck/skins/flat/green.css" th:href="@{/vendors/iCheck/skins/flat/green.css}"
+		  rel="stylesheet"/>
 
+	<!-- bootstrap-progressbar -->
+	<link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"
+		  th:href="@{/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css}" rel="stylesheet"/>
+	<!-- JQVMap -->
+	<link href="../vendors/jqvmap/dist/jqvmap.min.css" th:href="@{/vendors/jqvmap/dist/jqvmap.min.css}"
+		  rel="stylesheet"/>
+	<!-- bootstrap-daterangepicker -->
+	<link href="../vendors/bootstrap-daterangepicker/daterangepicker.css"
+		  th:href="@{/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet"/>
+	<!-- Custom Theme Style -->
+	<link href="../build/css/custom.min.css" th:href="@{/build/css/custom.min.css}" rel="stylesheet"/>
+	<link href="../css/custom.css" rel="stylesheet" th:href="@{/css/custom.css}" type="text/css"/>
+	<link rel="stylesheet" href="../build/css/bootstrap.min.css" th:href="@{/build/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" href="../build/css/hompage-custom.css" th:href="@{/build/css/hompage-custom.css}"/>
+	<link href="../build/css/list.css" rel="stylesheet" th:href="@{/build/css/list.css}"/>
+	<link href="../build/css/back-end-index.css" rel="stylesheet" type="text/css"
+		  th:href="@{/build/css/back-end-index.css}"/>
 
-<!-- Bootstrap -->
-<link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css"
-	th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}"
-	rel="stylesheet" />
-<!-- Font Awesome -->
-<link href="../static/vendors/font-awesome/css/font-awesome.min.css"
-	th:href="@{/vendors/font-awesome/css/font-awesome.min.css}"
-	rel="stylesheet" />
-
-<!-- iCheck -->
-<link href="../static/vendors/iCheck/skins/flat/green.css"
-	th:href="@{/vendors/iCheck/skins/flat/green.css}" rel="stylesheet" />
-<!-- Datatables -->
-<link
-	href="../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"
-	th:href="@{/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}"
-	rel="stylesheet" />
-<link
-	href="../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"
-	th:href="@{/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}"
-	rel="stylesheet" />
-<link
-	href="../static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"
-	th:href="@{/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}"
-	rel="stylesheet" />
-<link
-	href="../static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"
-	th:href="@{/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}"
-	rel="stylesheet" />
-<link
-	href="../static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"
-	th:href="@{/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}"
-	rel="stylesheet" />
-
-<!-- Custom Theme Style -->
-<link href="../static/build/css/custom.min.css"
-	th:href="@{/build/css/custom.min.css}" rel="stylesheet" />
-<link href="../static/css/custom.css" th:href="@{/css/custom.css}"
-	rel="stylesheet" />
+	<link href="../build/js/Tooltip-css.css" rel="stylesheet" th:href="@{/build/js/Tooltip-css.css}"/>
 </head>
 
 <body style="background: #FFF">
 	<div class="x_panel" style="margin-top: 30px">
-		<th:block th:unless="${#lists.isEmpty(lsLecture)}">
-			<div class="col-md-55" th:each="lecture, i : ${lsLecture}">
+		<th:block th:unless="${#lists.isEmpty(lsLecturer)}">
+			<div class="col-md-55" th:each="lecture, i : ${lsLecturer}">
 				<div class="thumbnail">
 					<div class="image view view-first">
 						<img style="width: 100%; display: block;"
 							src="'/static/images/face/'+${lecture.avatar}"
-							th:src="@{'/images/face/'+${lecture.avatar}}" alt="image" />
+							th:src="@{'/images/face/Nu/1.jpg'}" alt="image" />
 
 					</div>
 					<div class="caption" align="center">
 						<p>
-							<strong th:text="${lecture.fullname}"></strong>
+							<strong th:text="${lecture.getFullName()}"></strong>
 						</p>
 						<p>${lecture.email}</p>
 					</div>
@@ -71,8 +74,6 @@
 			</div>
 		</th:block>
 	</div>
-
-
 </body>
 
 <!-- jQuery -->

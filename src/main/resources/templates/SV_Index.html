@@ -1,5 +1,30 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SV_Masterpage.master" AutoEventWireup="true" CodeFile="SV_Index.aspx.cs" Inherits="SV_Index" %>
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="User_Student_Masterpage :: head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container body">
+    <div class="main_container">
+        <th:block th:replace="User_Student_Masterpage :: top"></th:block>
+        <!-- /top navigation -->
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-</asp:Content>
+        <!-- page content -->
+        <th:block>
+
+        </th:block>
+        <!-- footer content -->
+        <!-- /footer content -->
+        <th:block th:replace="User_Student_Masterpage :: script"></th:block>
+    </div>
+</div>
+
+
+</body>
+</html>
 

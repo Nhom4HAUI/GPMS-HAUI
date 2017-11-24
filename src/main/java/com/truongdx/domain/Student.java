@@ -34,7 +34,16 @@ public class Student {
 	private String description;
 	private int teamId;
     private String username;
+    @Column(name = "isDelte", nullable = true)
+    private boolean delete;
 
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete(boolean delete) {
+        this.delete = delete;
+    }
 	@ManyToMany
 	@JoinTable(
 			name = "student_role",

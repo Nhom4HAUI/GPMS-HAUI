@@ -19,7 +19,16 @@ public class Score {
 	private int score;
 	private int examinationCouncilId;
 	private int graduationThesisId;
+	@Column(name = "isDelte", nullable = true)
+	private boolean delete;
 
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
 
 
 	public Score(){

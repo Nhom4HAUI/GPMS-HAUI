@@ -15,7 +15,18 @@ public class Classes {
 	private String facultyName;
 	private String name;
 
-    public Classes(){	}
+	@Column(name = "isDelte", nullable = true)
+	private boolean delete;
+
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
+
+	public Classes(){	}
 
 	public String getClassId() {
 		return classId;

@@ -20,7 +20,16 @@ public class Leader {
     private String firstName;
     private boolean gender;
     private String hktt;
+    @Column(name = "isDelte", nullable = true)
+    private boolean delete;
 
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete(boolean delete) {
+        this.delete = delete;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

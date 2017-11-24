@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="NEW/Masterpage/masterpage :: head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<nav th:replace="NEW/Masterpage/masterpage :: navbar"></nav>
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div>
+            <div style="margin-left: 15px">
+                <h2>Danh sách đề tài</h2>
+            </div>
+            <div>
+                <div class="col-md-4 col-sm-12" style="float: left">
+                    <h3>Chọn khoa: </h3>
+                    <select class="form-control" name="faculty" id="khoa">
+                        <option value="" th:hidden="true">Hãy lựa chọn khoa</option>
+                        <th:block th:unless="${#lists.isEmpty(lsFaculty)}">
+                            <option th:each="faculty, i : ${lsFaculty}"
+                                    th:value="${faculty.facultyId}" th:text="${faculty.name}"></option>
+                        </th:block>
+                    </select>
+
+                </div>
+                <a th:href="@{/student/registerProject}"><button id="registerProject"  class="btn btn-info new-btn" style="float: right;">Đề xuất đề tài ❯</button></a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="noidung"></div>
+    </div>
+
+    <th:block th:replace="NEW/Masterpage/masterpage :: footer"></th:block>
+</div>
+</body>
+
+<script>
+    $(document).ready(function () {
+
+        $("#khoa").change(function () {
+            var x = $("#khoa").val();
+
+            $.get("/listProject", {
+                facultyId: x
+            }, function (data) {
+                $("#noidung").html(data);
+            });
+
+            /* $.get(s"/ajax",{p:x},function(data){
+             alert(x);
+             $("#noidung").html(data);
+             }); */
+
+            /* $("#noidung").load("/DSGV"); */
+        });
+
+    });
+</script>
+</html>

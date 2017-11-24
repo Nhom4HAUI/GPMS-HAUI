@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="NEW/Masterpage/masterpage :: head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<nav th:replace="NEW/Masterpage/masterpage :: navbar"></nav>
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#" th:href="@{/student/index}">Trang Chủ</a>
+            </li>
+            <li class="breadcrumb-item active">Quản lý đồ án</li>
+        </ol>
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Tiến độ
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                       cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                                       style="width: 100%;">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-sort="ascending"
+                                            aria-label="STT: activate to sort column descending" style="width: 261px;">
+                                            STT
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Tên công việc: activate to sort column ascending"
+                                            style="width: 394px;">Tên công việc
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Đầu vào dự kiến: activate to sort column ascending"
+                                            style="width: 194px;">Đầu vào dự kiến
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Đầu ra dự kiến: activate to sort column ascending"
+                                            style="width: 100px;">Đầu ra dự kiến
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Ngày bắt đầu: activate to sort column ascending"
+                                            style="width: 189px;">Ngày bắt đầu
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Ngày dự kiến kết thúc: activate to sort column ascending"
+                                            style="width: 156px;">Ngày dự kiến kết thúc
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Kết quả: activate to sort column ascending"
+                                            style="width: 156px;">Kết quả
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Ghi chú: activate to sort column ascending"
+                                            style="width: 156px;">Ghi chú
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Thay đổi: activate to sort column ascending"
+                                            style="width: 156px;">Thay đổi
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">STT</th>
+                                        <th rowspan="1" colspan="1">Tên công việc</th>
+                                        <th rowspan="1" colspan="1">Đầu vào dự kiến</th>
+                                        <th rowspan="1" colspan="1">Đầu ra dự kiến</th>
+                                        <th rowspan="1" colspan="1">Ngày bắt đầu</th>
+                                        <th rowspan="1" colspan="1">Ngày dự kiến kết thúc</th>
+                                        <th rowspan="1" colspan="1">Kết quả</th>
+                                        <th rowspan="1" colspan="1">Ghi chú</th>
+                                        <th rowspan="1" colspan="1">Thay đổi</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <tr role="row" class="even">
+                                        <td class="sorting_1">1</td>
+                                        <td>Nghiên cứu tài liệu</td>
+                                        <td>Tài liệu github</td>
+                                        <td>Báo cáo chi tiết</td>
+                                        <td>20/11/2017</td>
+                                        <td>20/12/2017</td>
+                                        <td></td>
+                                        <td>Chưa hoàn thành</td>
+                                        <td>
+                                            <a th:href="@{/student/editTask}"><button class="btn btn-info new-btn">Cập nhật ❯</button></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+
+    <th:block th:replace="NEW/Masterpage/masterpage :: footer"></th:block>
+</div>
+</body>
+</html>

@@ -18,50 +18,50 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DataSeedingListener implements ApplicationListener<ContextRefreshedEvent> {
-	@Autowired
-	RoleRepository roleRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
-	@Autowired
-	LeaderRepository leaderRepository;
+    @Autowired
+    LeaderRepository leaderRepository;
 
-	@Autowired
-	FacultyRepository facultyRepository;
+    @Autowired
+    FacultyRepository facultyRepository;
 
-	@Autowired
-	LecturerRepository lecturerRepository;
+    @Autowired
+    LecturerRepository lecturerRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-	@Override
-	public void onApplicationEvent(ContextRefreshedEvent event) {
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
 
-		//Create ROLE
-		if (roleRepository.findByName("ROLE_ADMIN") == null){
-			roleRepository.save(new Role("ROLE_ADMIN"));
-		}
-		if (roleRepository.findByName("ROLE_LECTURER") == null){
-			roleRepository.save(new Role("ROLE_LECTURER"));
-		}
-		if (roleRepository.findByName("ROLE_LEADER") == null){
-			roleRepository.save(new Role("ROLE_LEADER"));
-		}
-		if (roleRepository.findByName("ROLE_GUEST") == null){
-			roleRepository.save(new Role("ROLE_GUEST"));
-		}
+        //Create ROLE
+        if (roleRepository.findByName("ROLE_ADMIN") == null) {
+            roleRepository.save(new Role("ROLE_ADMIN"));
+        }
+        if (roleRepository.findByName("ROLE_LECTURER") == null) {
+            roleRepository.save(new Role("ROLE_LECTURER"));
+        }
+        if (roleRepository.findByName("ROLE_LEADER") == null) {
+            roleRepository.save(new Role("ROLE_LEADER"));
+        }
+        if (roleRepository.findByName("ROLE_GUEST") == null) {
+            roleRepository.save(new Role("ROLE_GUEST"));
+        }
 
-		//Create Faculty
-		if(facultyRepository.findByFacultyId("CNTT") == null){
-			facultyRepository.save(new Faculty("CNTT", "Công nghệ thông tin", 0));
-		}
+        //Create Faculty
+        if (facultyRepository.findByFacultyId("CNTT") == null) {
+            facultyRepository.save(new Faculty("CNTT", "Công nghệ thông tin", 0));
+        }
 
-		//Create Faculty
-		if(facultyRepository.findByFacultyId("KT") == null){
-			facultyRepository.save(new Faculty("KT", "Kế toán", 0));
-		}
+        //Create Faculty
+        if (facultyRepository.findByFacultyId("KT") == null) {
+            facultyRepository.save(new Faculty("KT", "Kế toán", 0));
+        }
 
-		//Create lecture
-        if(lecturerRepository.findByUsername("gv1") == null){
+        //Create lecture
+        if (lecturerRepository.findByUsername("gv1") == null) {
             Lecturer lecturer = new Lecturer();
             lecturer.setUsername("gv1");
             lecturer.setPassword(passwordEncoder.encode("1"));
@@ -71,10 +71,14 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
             HashSet<Role> roles = new HashSet<>();
             roles.add(roleRepository.findByName("ROLE_LECTURER"));
             lecturer.setRoles(roles);
+            int facultyId = facultyRepository.findByFacultyId("KT").getId();
+            if (!(facultyId < 0))
+                lecturer.setFacultyId(facultyId);
+            lecturerRepository.save(lecturer);
             lecturerRepository.save(lecturer);
         }
         //Create lecture
-        if(lecturerRepository.findByUsername("gv2") == null){
+        if (lecturerRepository.findByUsername("gv2") == null) {
             Lecturer lecturer = new Lecturer();
             lecturer.setUsername("gv2");
             lecturer.setPassword(passwordEncoder.encode("1"));
@@ -84,8 +88,11 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
             HashSet<Role> roles = new HashSet<>();
             roles.add(roleRepository.findByName("ROLE_LECTURER"));
             lecturer.setRoles(roles);
+            int facultyId = facultyRepository.findByFacultyId("CNTT").getId();
+            if (!(facultyId < 0))
+                lecturer.setFacultyId(facultyId);
             lecturerRepository.save(lecturer);
         }
 
-	}
+    }
 }

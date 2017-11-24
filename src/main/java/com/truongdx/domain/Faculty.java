@@ -18,7 +18,16 @@ public class Faculty {
 	private String facultyId;
 	private String name;
     private int leaderId;
+	@Column(name = "isDelte", nullable = true)
+	private boolean delete;
 
+	public boolean isDelete() {
+		return delete;
+	}
+
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
 	public Faculty(String facultyId, String name, int leaderId) {
 		this.facultyId = facultyId;
 		this.name = name;

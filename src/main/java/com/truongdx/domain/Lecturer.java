@@ -37,7 +37,16 @@ public class Lecturer {
     private int status;
     private int facultyId;
     private String username;
+    @Column(name = "isDelte", nullable = true)
+    private boolean delete;
 
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete(boolean delete) {
+        this.delete = delete;
+    }
     @ManyToMany
     @JoinTable(
             name = "lecturer_role",
@@ -216,5 +225,9 @@ public class Lecturer {
 
     public void setReligion(String religion) {
         this.religion = religion;
+    }
+
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
     }
 }

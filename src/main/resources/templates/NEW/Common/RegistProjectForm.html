@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="NEW/Masterpage/masterpage :: head">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .form-control{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+<div class="container-fluid">
+
+
+    <form th:fragment="formRegist">
+        <input class="form-control" type="text" placeholder="Mã sinh viên">
+        <input class="form-control" type="text" placeholder="Tên đề tài">
+        <div class="form-group">
+            <label for="summary">Tóm tắt đề tài</label>
+            <textarea class="form-control" id="summary" rows="3"></textarea>
+        </div>
+        <input class="form-control" type="text" placeholder="Mã giảng viên hướng dẫn">
+        <input class="form-control" type="text" placeholder="Giảng viên hướng dẫn">
+
+        <div class="form-group">
+            <label for="reason">Lý do chọn đề tài</label>
+            <textarea class="form-control" id="reason" rows="3"></textarea>
+        </div>
+        <div align="center">
+            <button type="submit" class="btn btn-success">Đăng kí</button>
+            <button type="submit" class="btn btn-danger">Reset</button>
+            <button type="submit" class="btn btn-dark">Hủy</button>
+        </div>
+    </form>
+
+    <th:block th:replace="NEW/Masterpage/masterpage :: footer"></th:block>
+</div>
+</body>
+</html>

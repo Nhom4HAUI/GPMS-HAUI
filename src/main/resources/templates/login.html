@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="form">
-    <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" /></div>
+    <div class="thumbnail"><img src="../static/images/hat.svg" th:src="@{/images/hat.svg}"/></div>
     
     <form class="login-form" th:action="@{/login}" method="post">
       <input type="text" placeholder="username" name="username"/>

@@ -13,12 +13,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DataSeedingListener implements ApplicationListener<ContextRefreshedEvent> {
+    public static final String ADMIN = "ROLE_ADMIN";
+    public static final String LECTURER = "ROLE_LECTURER";
+    public static final String LEADER = "ROLE_LEADER";
+    public static final String GUEST = "ROLE_GUEST";
+    public static final String STUDENT = "ROLE_STUDENT";
+
     @Autowired
     RoleRepository roleRepository;
 
     @Autowired
     LeaderRepository leaderRepository;
 
+    @Autowired
     StudentRepository studentRepository;
 
     @Autowired
@@ -36,17 +43,20 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
         //Create ROLE
-        if (roleRepository.findByName("ROLE_ADMIN") == null) {
-            roleRepository.save(new Role("ROLE_ADMIN"));
+        if (roleRepository.findByName(ADMIN) == null) {
+            roleRepository.save(new Role(ADMIN));
         }
-        if (roleRepository.findByName("ROLE_LECTURER") == null) {
-            roleRepository.save(new Role("ROLE_LECTURER"));
+        if (roleRepository.findByName(LECTURER) == null) {
+            roleRepository.save(new Role(LECTURER));
         }
-        if (roleRepository.findByName("ROLE_LEADER") == null) {
-            roleRepository.save(new Role("ROLE_LEADER"));
+        if (roleRepository.findByName(LEADER) == null) {
+            roleRepository.save(new Role(LEADER));
         }
-        if (roleRepository.findByName("ROLE_GUEST") == null) {
-            roleRepository.save(new Role("ROLE_GUEST"));
+        if (roleRepository.findByName(GUEST) == null) {
+            roleRepository.save(new Role(GUEST));
+        }
+        if(roleRepository.findByName(STUDENT) == null){
+            roleRepository.save(new Role(STUDENT));
         }
 
         //Create Faculty
@@ -118,8 +128,6 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
             student.setUserId(userRepository.findByUsername("sv").getId());
             student.setFirstName("Nguyen Van ");
             student.setLastName("B ");
-
-            int facultyId = facultyRepository.findByFacultyId("CNTT").getId();
             studentRepository.save(student);
         }
 

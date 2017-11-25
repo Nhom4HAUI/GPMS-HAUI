@@ -10,6 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/lecturer")
 public class LecturerController {
 
+
+    @GetMapping("")
+    public ModelAndView index_(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("NEW/Lecturer/index");
+
+        return model;
+    }
+
     @GetMapping("/index")
     public ModelAndView index(){
         ModelAndView model = new ModelAndView();

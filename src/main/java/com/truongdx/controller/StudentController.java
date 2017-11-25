@@ -14,6 +14,14 @@ public class StudentController {
     @Autowired
     FacultyService facultyService;
 
+    @GetMapping("")
+    public ModelAndView student_index_(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("NEW/Student/index");
+
+        return model;
+    }
+
     @GetMapping("/index")
     public ModelAndView student_index(){
         ModelAndView model = new ModelAndView();

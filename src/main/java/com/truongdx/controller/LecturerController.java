@@ -65,4 +65,12 @@ public class LecturerController {
 
         return model;
     }
+
+    @GetMapping("/allProjectLeading")
+    public ModelAndView Lecturer_List_All_Project_Leading(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("/NEW/Lecturer/Lecturer_List_All_Project_Leading");
+
+        return model;
+    }
 }

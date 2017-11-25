@@ -20,16 +20,7 @@ public class Leader {
     private String firstName;
     private boolean gender;
     private String hktt;
-    @Column(name = "isDelte", nullable = true)
-    private boolean delete;
-
-    public boolean isDelete() {
-        return delete;
-    }
-
-    public void setDelete(boolean delete) {
-        this.delete = delete;
-    }
+    private int userId;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -42,14 +33,24 @@ public class Leader {
 
     private String job;
     private int facultyId;
-    @ManyToMany
-    @JoinTable(
-            name = "leader_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles;
+    @Column(name = "isDelte", nullable = true)
+    private boolean delete;
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete(boolean delete) {
+        this.delete = delete;
+    }
 
     public String getUsername() {
         return username;
@@ -57,14 +58,6 @@ public class Leader {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 
     public int getFacultyId() {

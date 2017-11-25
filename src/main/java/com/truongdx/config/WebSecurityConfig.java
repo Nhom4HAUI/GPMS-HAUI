@@ -14,13 +14,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	@Autowired
-	private MySimpleUrlAuthenticationSuccessHandler successHandler;
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
 	
 	@Override
@@ -28,8 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/test").hasRole("LECTURE")
+                .antMatchers("/test").hasRole("LECTURER")
                 .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/student/**").hasRole("STUDENT")
+                .antMatchers("/lecturer/**").hasRole("LECTURER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
             .formLogin()
             	.loginPage("/login")
@@ -37,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             	.passwordParameter("password")
             	//.successHandler(successHandler)
             	.failureUrl("/login?error")
+				.defaultSuccessUrl("/student/index")
             	.and()
         	.exceptionHandling()
     			.accessDeniedPage("/403");

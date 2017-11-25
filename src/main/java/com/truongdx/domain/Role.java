@@ -13,15 +13,10 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<Student> studentRoles;
-    @ManyToMany(mappedBy = "roles")
-    private Set<Lecturer> lectureRoles;
-    @ManyToMany(mappedBy = "roles")
-    private Set<Leader> leaderRoles;
-/*    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;*/
-@Column(name = "isDelte", nullable = true)
-private boolean delete;
+    Set<User> users;
+
+    @Column(name = "isDelte", nullable = true)
+    private boolean delete;
 
     public boolean isDelete() {
         return delete;
@@ -30,34 +25,12 @@ private boolean delete;
     public void setDelete(boolean delete) {
         this.delete = delete;
     }
-    public Role(){}
 
-    public Role(String name){
+    public Role() {
+    }
+
+    public Role(String name) {
         this.name = name;
-    }
-
-    public Set<Student> getStudentRoles() {
-        return studentRoles;
-    }
-
-    public void setStudentRoles(Set<Student> studentRoles) {
-        this.studentRoles = studentRoles;
-    }
-
-    public Set<Lecturer> getLectureRoles() {
-        return lectureRoles;
-    }
-
-    public void setLectureRoles(Set<Lecturer> lectureRoles) {
-        this.lectureRoles = lectureRoles;
-    }
-
-    public Set<Leader> getLeaderRoles() {
-        return leaderRoles;
-    }
-
-    public void setLeaderRoles(Set<Leader> leaderRoles) {
-        this.leaderRoles = leaderRoles;
     }
 
     public int getId() {
@@ -76,5 +49,11 @@ private boolean delete;
         this.name = name;
     }
 
+    public Set<User> getUsers() {
+        return users;
+    }
 
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 }

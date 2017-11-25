@@ -2,13 +2,8 @@ package com.truongdx.config;
 
 import java.util.HashSet;
 
-import com.truongdx.domain.Faculty;
-import com.truongdx.domain.Lecturer;
-import com.truongdx.domain.Role;
-import com.truongdx.repository.FacultyRepository;
-import com.truongdx.repository.LeaderRepository;
-import com.truongdx.repository.LecturerRepository;
-import com.truongdx.repository.RoleRepository;
+import com.truongdx.domain.*;
+import com.truongdx.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -24,6 +19,8 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
     @Autowired
     LeaderRepository leaderRepository;
 
+    StudentRepository studentRepository;
+
     @Autowired
     FacultyRepository facultyRepository;
 
@@ -33,6 +30,8 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UserRepository userRepository;
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
@@ -61,38 +60,69 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
         }
 
         //Create lecture
-        if (lecturerRepository.findByUsername("gv1") == null) {
+        if (userRepository.findByUsername("gv1") == null) {
+            User user = new User();
+            user.setUsername("gv1");
+            user.setPassword(passwordEncoder.encode("1"));
+            HashSet<Role> roles = new HashSet<>();
+            roles.add(roleRepository.findByName("ROLE_LECTURER"));
+            user.setRoles(roles);
+            userRepository.save(user);
+
+
             Lecturer lecturer = new Lecturer();
-            lecturer.setUsername("gv1");
-            lecturer.setPassword(passwordEncoder.encode("1"));
+            lecturer.setUserId(userRepository.findByUsername("gv1").getId());
             lecturer.setFirstName("Nguyen Van ");
             lecturer.setLastName("A ");
             lecturer.setDegree("T.S");
-            HashSet<Role> roles = new HashSet<>();
-            roles.add(roleRepository.findByName("ROLE_LECTURER"));
-            lecturer.setRoles(roles);
             int facultyId = facultyRepository.findByFacultyId("KT").getId();
             if (!(facultyId < 0))
                 lecturer.setFacultyId(facultyId);
             lecturerRepository.save(lecturer);
-            lecturerRepository.save(lecturer);
+
         }
-        //Create lecture
-        if (lecturerRepository.findByUsername("gv2") == null) {
-            Lecturer lecturer = new Lecturer();
-            lecturer.setUsername("gv2");
-            lecturer.setPassword(passwordEncoder.encode("1"));
-            lecturer.setFirstName("Nguyen Van ");
-            lecturer.setLastName("B ");
-            lecturer.setDegree("ThS");
+
+        if (userRepository.findByUsername("gv2") == null) {
+            User user = new User();
+            user.setUsername("gv2");
+            user.setPassword(passwordEncoder.encode("1"));
             HashSet<Role> roles = new HashSet<>();
             roles.add(roleRepository.findByName("ROLE_LECTURER"));
-            lecturer.setRoles(roles);
+            user.setRoles(roles);
+            userRepository.save(user);
+
+
+            Lecturer lecturer = new Lecturer();
+            lecturer.setUserId(userRepository.findByUsername("gv2").getId());
+            lecturer.setFirstName("Nguyen Van ");
+            lecturer.setLastName("B ");
+            lecturer.setDegree("Th.S");
             int facultyId = facultyRepository.findByFacultyId("CNTT").getId();
             if (!(facultyId < 0))
                 lecturer.setFacultyId(facultyId);
             lecturerRepository.save(lecturer);
+
         }
+
+        if (userRepository.findByUsername("sv") == null) {
+            User user = new User();
+            user.setUsername("sv");
+            user.setPassword(passwordEncoder.encode("1"));
+            HashSet<Role> roles = new HashSet<>();
+            roles.add(roleRepository.findByName("ROLE_STUDENT"));
+            user.setRoles(roles);
+            userRepository.save(user);
+
+
+            Student student = new Student();
+            student.setUserId(userRepository.findByUsername("sv").getId());
+            student.setFirstName("Nguyen Van ");
+            student.setLastName("B ");
+
+            int facultyId = facultyRepository.findByFacultyId("CNTT").getId();
+            studentRepository.save(student);
+        }
+
 
     }
 }

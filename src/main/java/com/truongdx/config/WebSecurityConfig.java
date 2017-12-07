@@ -38,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/student/**").hasRole("STUDENT")
                 .antMatchers("/lecturer/**").hasRole("LECTURER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/elastic/**").hasRole("LECTURER")
                 .and()
             .formLogin()
             	.loginPage("/login")

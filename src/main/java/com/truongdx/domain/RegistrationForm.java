@@ -15,6 +15,7 @@ public class RegistrationForm {
     private Date registrationDate;
     private int status;
     private int teamId;
+
     @Column(name = "isDelte", nullable = true)
     private boolean delete;
 

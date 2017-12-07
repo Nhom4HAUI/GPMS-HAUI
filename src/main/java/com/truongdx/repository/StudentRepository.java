@@ -10,4 +10,8 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
     Student findByUsername(String username);
 
     List<Student> findByUsernameContaining(String q);
+
+    Student findByUserId(int id);
+
+    Student findById(int id);
 }

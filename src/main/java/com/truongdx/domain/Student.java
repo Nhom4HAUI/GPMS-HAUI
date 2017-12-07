@@ -197,6 +197,10 @@ public class Student {
         this.religion = religion;
     }
 
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
+
     public Student(){
 
 	}

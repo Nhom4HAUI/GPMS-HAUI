@@ -11,17 +11,37 @@ import javax.persistence.*;
 @Entity
 @Table(name = "project")
 public class Project {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int lectureId;
-	private int addressApplicable;
+	private String addressApplicable;
 	private String description;
 	private String fieldOfApplication;
 	private String name;
 	private String requirement;
+
+	/*
+	* Nhóm đề tài
+	* */
+	private int groupProjectId;
+	private String requirement_Basic;
+	private String requirement_GP;
+	private String contentProjectBasic;
+	private String contentProject_GP;
 	private String resuilt;
 	private String summary;
+	private int status;
+
+	/*========================
+	Hệ áp dụng của đề tài
+	* Cao đẳng: 0
+	* Đại học: 1
+	* Cả 2: 2
+	===========================*/
+	private int type;
+
 	@Column(name = "isDelte", nullable = true)
 	private boolean delete;
 
@@ -52,11 +72,11 @@ public class Project {
 		this.lectureId = lectureId;
 	}
 
-	public int getAddressApplicable() {
+	public String getAddressApplicable() {
 		return addressApplicable;
 	}
 
-	public void setAddressApplicable(int addressApplicable) {
+	public void setAddressApplicable(String addressApplicable) {
 		this.addressApplicable = addressApplicable;
 	}
 
@@ -107,4 +127,60 @@ public class Project {
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+    public int getGroupProjectId() {
+        return groupProjectId;
+    }
+
+    public void setGroupProjectId(int groupProjectId) {
+        this.groupProjectId = groupProjectId;
+    }
+
+    public String getRequirement_Basic() {
+        return requirement_Basic;
+    }
+
+    public void setRequirement_Basic(String requirement_Basic) {
+        this.requirement_Basic = requirement_Basic;
+    }
+
+    public String getRequirement_GP() {
+        return requirement_GP;
+    }
+
+    public void setRequirement_GP(String requirement_GP) {
+        this.requirement_GP = requirement_GP;
+    }
+
+    public String getContentProjectBasic() {
+        return contentProjectBasic;
+    }
+
+    public void setContentProjectBasic(String contentProjectBasic) {
+        this.contentProjectBasic = contentProjectBasic;
+    }
+
+    public String getContentProject_GP() {
+        return contentProject_GP;
+    }
+
+    public void setContentProject_GP(String contentProject_GP) {
+        this.contentProject_GP = contentProject_GP;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }

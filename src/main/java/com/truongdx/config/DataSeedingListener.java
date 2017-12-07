@@ -39,6 +39,9 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    GraduationThesisRepository graduationThesisRepository;
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
@@ -130,7 +133,6 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
             student.setLastName("B ");
             studentRepository.save(student);
         }
-
 
     }
 }
